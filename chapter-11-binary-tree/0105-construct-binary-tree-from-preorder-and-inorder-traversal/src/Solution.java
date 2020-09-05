@@ -4,14 +4,14 @@ public class Solution {
         int preLen = preorder.length;
         int inLen = inorder.length;
         if (preLen != inLen) {
-            throw new RuntimeException("Incorrect input data.");
+            throw new RuntimeException("输入数据有误。");
         }
         return buildTree(preorder, 0, preLen - 1, inorder, 0, inLen - 1);
     }
 
     /**
-     * 使用数组 preorder 在索引区间 [preLeft, preRight] 中的所有元素
-     * 和数组 inorder 在索引区间 [inLeft, inRight] 中的所有元素构造二叉树
+     * 使用数组 preorder 在索引区间 [preLeft..preRight] 中的所有元素
+     * 和数组 inorder 在索引区间 [inLeft..inRight] 中的所有元素构造二叉树
      *
      * @param preorder 二叉树前序遍历结果
      * @param preLeft  二叉树前序遍历结果的左边界

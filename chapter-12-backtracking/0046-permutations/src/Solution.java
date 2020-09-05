@@ -31,10 +31,21 @@ public class Solution {
             used[i] = true;
             path.addLast(nums[i]);
 
+            // 在添加 nums[i] 以后输出
+            System.out.println("path => " + path);
             dfs(nums, index + 1, len, used, path, res);
 
             used[i] = false;
             path.removeLast();
+            // 在撤销 nums[i] 以后输出
+            System.out.println("path => " + path);
         }
+    }
+
+    public static void main(String[] args) {
+        Solution solution = new Solution();
+        int[] nums = new int[]{1, 2, 3};
+        List<List<Integer>> res = solution.permute(nums);
+        System.out.println(res);
     }
 }

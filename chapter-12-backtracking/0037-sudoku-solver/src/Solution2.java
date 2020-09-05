@@ -1,5 +1,7 @@
 public class Solution2 {
 
+    // 递归终止条件混乱
+
     public void solveSudoku(char[][] board) {
         if (board == null || board.length == 0) {
             return;
