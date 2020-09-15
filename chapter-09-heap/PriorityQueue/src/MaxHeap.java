@@ -43,6 +43,19 @@ public class MaxHeap implements Queue {
         size = 0;
     }
 
+    public MaxHeap(int[] arr) {
+        capacity = arr.length + 1;
+        data = new int[capacity];
+        size = arr.length;
+        for (int i = 0; i < size; i++) {
+            data[i + 1] = arr[i];
+        }
+
+        for (int i = size / 2; i >= 1; i++) {
+            siftDown(i);
+        }
+    }
+
     @Override
     public void offer(int item) {
         if (size + 1 > capacity) {
@@ -152,7 +165,7 @@ public class MaxHeap implements Queue {
         }
         // 注意：堆顶元素替换，size 不变
         data[1] = item;
-        siftUp(1);
+        siftDown(1);
     }
 
     public static void main(String[] args) {
