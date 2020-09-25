@@ -264,6 +264,10 @@ public class BinarySearchTree {
         }
     }
 
+    public Integer floor(int key) {
+        return floor(root, key);
+    }
+
     /**
      * @param node
      * @param key
@@ -274,16 +278,20 @@ public class BinarySearchTree {
             return null;
         }
         if (node.key == key) {
-            return node.value;
+            return node.key;
         }
         if (key < node.key) {
             return floor(node.left, key);
         }
-        Integer tempValue = floor(node.right, key);
-        if (tempValue != null) {
-            return tempValue;
+        Integer temp = floor(node.right, key);
+        if (temp != null) {
+            return temp;
         }
-        return node.value;
+        return node.key;
+    }
+
+    public Integer ceiling(int key) {
+        return ceiling(key);
     }
 
     /**
@@ -296,15 +304,15 @@ public class BinarySearchTree {
             return null;
         }
         if (key == node.key) {
-            return node.value;
+            return node.key;
         }
         if (key > node.key) {
             return ceiling(node.right, key);
         }
-        Integer tempValue = ceiling(node.left, key);
-        if (tempValue != null) {
-            return tempValue;
+        Integer temp = ceiling(node.left, key);
+        if (temp != null) {
+            return temp;
         }
-        return node.value;
+        return node.key;
     }
 }
